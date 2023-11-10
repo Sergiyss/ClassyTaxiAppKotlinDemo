@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "357133728018",
+    "project_id": "quiet-mechanic-356910",
+    "storage_bucket": "quiet-mechanic-356910.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:357133728018:android:908d41faa7050452381bcb",
+        "android_client_info": {
+          "package_name": "com.ua.didido"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "357133728018-pbat80408i0dcclfdb2vgjrsvph066as.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ua.didido",
+            "certificate_hash": "3e093d957a0f92d00fcb730a11eb5958c6bad6fb"
+          }
+        },
+        {
+          "client_id": "357133728018-rjbs88lf5c1l9bnbs1g2976kcu7qs2g9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlAXwLselHn1AXrhWNNvLGvnMn3wHfwEk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "357133728018-rjbs88lf5c1l9bnbs1g2976kcu7qs2g9.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "357133728018-aq1h3a3qd504eqp2mpi6orv7jstesfi1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.sheptura.didido",
+                "app_store_id": "1660827431"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

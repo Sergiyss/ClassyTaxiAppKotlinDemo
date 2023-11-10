@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ /*
+  ~  * Copyright 2023 Google, Inc.
+  ~  *
+  ~  * Licensed under the Apache License, Version 2.0 (the "License");
+  ~  * you may not use this file except in compliance with the License.
+  ~  * You may obtain a copy of the License at
+  ~  *
+  ~  *     https://www.apache.org/licenses/LICENSE-2.0
+  ~  *
+  ~  * Unless required by applicable law or agreed to in writing, software
+  ~  * distributed under the License is distributed on an "AS IS" BASIS,
+  ~  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~  * See the License for the specific language governing permissions and
+  ~  * limitations under the License.
+  ~  */
+  -->
+
+<resources>
+    <dimen name="ui_button_width">240dp</dimen>
+    <dimen name="ui_button_height">60dp</dimen>
+    <dimen name="spacer_height">16dp</dimen>
+
+    <!-- Top bar -->
+    <dimen name="top_bar_elevation">4dp</dimen>
+    <dimen name="top_bar_height">64dp</dimen>
+    <dimen name="top_bar_row_padding">16dp</dimen>
+    <dimen name="top_bar_row_text_weight">1f</dimen>
+
+    <!-- Menu Drawer -->
+    <dimen name="menu_drawer_header_padding">64dp</dimen>
+    <dimen name="menu_drawer_header_height">64dp</dimen>
+    <dimen name="menu_drawer_body_button_padding">16dp</dimen>
+
+    <!-- Progress Circular Animation -->
+    <dimen name="progress_card_shape_size">8dp</dimen>
+    <dimen name="progress_card_elevation">8dp</dimen>
+
+    <!-- Button Group -->
+    <dimen name="button_group_card_elevation">10dp</dimen>
+
+    <!-- Image display -->
+    <dimen name="image_display_card_shape_size">15dp</dimen>
+    <dimen name="image_display_card_elevation">10dp</dimen>
+    <dimen name="image_display_column_padding">16dp</dimen>
+    <dimen name="image_display_box_height">200dp</dimen>
+</resources>

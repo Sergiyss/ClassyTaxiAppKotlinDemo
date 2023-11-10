@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright 2018 Google LLC. All rights reserved.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
+    <string name="app_name">Classy Taxi</string>
+
+    <!-- Application UI -->
+    <string name="title_activity_main">Classy Taxi</string>
+    <string name="tab_text_home">Basic</string>
+    <string name="tab_text_prepaid">Prepaid</string>
+    <string name="tab_text_premium">Premium</string>
+    <string name="tab_text_settings">Settings</string>
+    <string name="sign_in">Sign in</string>
+    <string name="no_basic_content">Loading basic content</string>
+    <string name="no_premium_content">Loading premium content</string>
+    <string name="no_prepaid_content">Loading prepaid content</string>
+
+    <!-- Minor subscription notices -->
+    <string name="grace_period_message">Something’s wrong with your subscription, but you’ve still
+        got access during a temporary grace period. Tap to fix it.</string>
+    <string name="restore_message_with_date">Your subscription is canceled and will expire on %1$s.
+        Tap to restore your subscription.</string>
+
+    <!-- Different account is using subscription -->
+    <string name="transfer_message">Wrong taxi? A different account is already using your
+        subscription, but you can transfer your subscription to this account.</string>
+    <string name="transfer_message_with_product">Wrong taxi? A different account is already using
+        your %1$s subscription, but you can transfer your subscription to this account.</string>
+    <string name="transfer_message_with_two_products">Wrong taxi? A different account is already
+        using your %1$s and %2$s subscriptions, but you can transfer your subscriptions to this
+        account.</string>
+    <string name="transfer_button_text">Transfer</string>
+
+    <!-- Account hold -->
+    <string name="account_hold_message">Classy Taxi is stuck! Your account is on hold because
+        there’s a problem with your payment method. Update your payment method or add a new one to
+        restore your subscription.</string>
+    <string name="fix_button_text">Manage payment methods</string>
+
+    <!-- Account paused -->
+    <string name="account_paused_message">Classy Taxi is taking a break. Payments for your
+        subscription are paused and will automatically resume on %1$s. You can resume your
+        subscription at any time.</string>
+    <string name="account_paused_button_text">Manage subscription</string>
+
+    <!-- Active subscriptions -->
+    <string name="premium_auto_message">Subscribe to a Premium plan</string>
+    <string name="basic_auto_message">You have an auto-renewing Basic subscription</string>
+    <string name="basic_prepaid_message">You have a prepaid Basic subscription</string>
+    <string name="premium_prepaid_message">You have a prepaid Premium subscription</string>
+    <string name="basic_content_text">Welcome to the basic classy taxi, driving through the peaceful
+        cool of the night.</string>
+    <string name="premium_content_text">Welcome to the premium space taxi, flying through the
+        endless possibilities of space.</string>
+    <string name="prepaid_content_text">Welcome to the prepaid space taxi, flying through the
+        endless possibilities of space.</string>
+
+
+    <!-- Paywall -->
+    <string name="paywall_message">Subscribe to a Basic plan</string>
+    <string name="paywall_base_plans_message">Select a Base plan</string>
+    <string name="prepaid_paywall_message">Subscribe to a Prepaid plan</string>
+    <string name="premium_paywall_message">Subscribe to a Premium plan</string>
+
+    <!-- Upgrade -->
+    <string name="premium_upgrade_message">You currently have a Basic plan. Upgrade to enjoy the
+        benefits of the Premium plan.</string>
+    <string name="monthly_upgrade_button_text">Upgrade to a monthly plan</string>
+    <string name="yearly_upgrade_button_text">Upgrade to a yearly plan</string>
+    <string name="premium_prepaid_upgrade_button_text">Upgrade to a prepaid premium plan</string>
+
+    <!-- Downgrade -->
+    <string name="basic_downgrade_message">You currently have a Premium plan. Downgrade to a Basic
+        plan.</string>
+    <string name="monthly_downgrade_button_text">Downgrade to a monthly plan</string>
+    <string name="yearly_downgrade_button_text">Downgrade to a yearly plan</string>
+    <string name="basic_prepaid_downgrade_button_text">Downgrade to a prepaid basic plan</string>
+
+    <!-- Top Up -->
+    <string name="top_up_button">Top Up</string>
+    <string name="convert_button">Convert your prepaid to a renewal plan</string>
+    <string name="top_up_message_with_date">Your prepaid subscription will expire on %1$s. Tap to
+        top up your subscription.</string>
+
+    <!-- Convert Basic to Prepaid -->
+    <string name="basic_to_prepaid_text">Tap to convert to Prepaid plan</string>
+    <string name="to_prepaid_message">You have a basic subscription. Tap to convert to a Prepaid
+        subscription.</string>
+    <string name="basic_to_prepaid_button">Convert to Prepaid</string>
+
+    <!-- Convert Prepaid to Basic Base plans -->
+    <string name="basic_monthly_conversion_button_text">
+        Convert Prepaid to monthly Basic subscription</string>
+    <string name="basic_yearly_conversion_button_text">Convert Prepaid to yearly Basic subscription
+    </string>
+    <string name="prepaid_to_basic_message">You have a prepaid subscription. Tap to convert to one
+        of the base plans of a Basic subscription.</string>
+
+    <!-- Convert Prepaid to Premium Base plans -->
+    <string name="premium_monthly_conversion_button_text">Convert Prepaid to monthly Premium
+        subscription</string>
+    <string name="premium_yearly_conversion_button_text">Convert Prepaid to yearly Premium
+        subscription</string>
+    <string name="prepaid_to_premium_message">You have a prepaid subscription. Tap to convert to
+        one of the base plans of a Premium subscription.</string>
+
+    <!-- Manage subscriptions -->
+    <string name="manage_subscription_label">Manage subscriptions</string>
+    <string name="manage_subscription_message">Manage your subscription on Google Play.</string>
+    <string name="google_play_subscriptions">Google Play Subscriptions</string>
+
+    <!-- Subscription options -->
+    <string name="subscription_options_label">Subscription options</string>
+    <string name="basic_button_text">Basic</string>
+    <string name="premium_button_text">Premium</string>
+    <string name="prepaid_button_text">Prepaid</string>
+    <string name="subscription_option_basic_message">Basic plan</string>
+    <string name="subscription_option_basic_message_current">Basic plan (current)</string>
+    <string name="subscription_option_basic_message_account_hold">Basic plan (on hold)</string>
+    <string name="subscription_option_basic_message_account_paused">Basic plan (paused)</string>
+    <string name="subscription_option_basic_message_grace_period">Basic plan (payment issue)
+    </string>
+    <string name="subscription_option_basic_message_restore">Basic plan (canceled)</string>
+    <string name="subscription_option_premium_message">Premium plan</string>
+    <string name="subscription_option_premium_message_current">Premium plan (current)</string>
+    <string name="subscription_option_premium_message_account_hold">Premium plan (on hold)</string>
+    <string name="subscription_option_premium_message_account_paused">Premium plan (paused)</string>
+    <string name="subscription_option_premium_message_grace_period">Premium plan (payment issue)
+    </string>
+    <string name="subscription_option_premium_message_restore">Premium plan (canceled)</string>
+    <string name="subscription_option_prepaid_message">Prepaid plan</string>
+    <string name="subscription_option_prepaid_message_current">Prepaid plan (current)</string>
+    <string name="subscription_option_prepaid_message_account_hold">Prepaid plan (on hold)</string>
+    <string name="subscription_option_prepaid_message_account_paused">Prepaid plan (paused)</string>
+    <string name="subscription_option_prepaid_message_grace_period">Prepaid plan (payment issue)
+    </string>
+    <string name="subscription_option_prepaid_message_restore">Prepaid plan (canceled)</string>
+
+    <!-- Base Plan options -->
+    <string name="monthly_plan_button_text">Monthly Plan</string>
+    <string name="yearly_plan_button_text">Yearly Plan</string>
+    <string name="prepaid_plan_button_text">Prepaid Plan</string>
+
+    <!-- Manage subscriptions guided step on Android TV -->
+    <string name="done">Done</string>
+    <string name="manage_subscription_scan_qr_code">Scan QR code with your mobile device.</string>
+
+    <!-- Compose -->
+    <string name="subscription_selection_button_text">Subscription</string>
+    <string name="menu_content_description_text">Menu</string>
+    <string name="monthly_basic_plan_text">Monthly Basic Plan</string>
+    <string name="yearly_basic_plan_text">Yearly Basic Plan</string>
+    <string name="prepaid_basic_plan_text">Prepaid Basic Plan</string>
+    <string name="monthly_premium_plan_text">Monthly Premium Plan</string>
+    <string name="yearly_premium_plan_text">Yearly Premium Plan</string>
+    <string name="prepaid_premium_plan_text">Prepaid Premium Plan</string>
+    <string name="basic_paywall_message">Subscribe to a Basic plan</string>
+    <string name="otp_selection_button_text">One Time Purchase</string>
+
+    <!-- Subscription -->
+    <string name="current_recurring_basic_subscription_message">You have a recurring basic subscription to Classy Taxi</string>
+    <string name="current_recurring_premium_subscription_message">You have a recurring premium subscription to Classy Taxi</string>
+    <string name="current_prepaid_basic_subscription_message">You have a prepaid basic subscription to Classy Taxi</string>
+    <string name="current_prepaid_premium_subscription_message">You have a prepaid premium subscription to Classy Taxi</string>
+
+    <!-- Downgrade Any Premium Plan to Any Basic Plan-->
+    <string name="downgrade_to_basic_monthly">Downgrade to Monthly Basic Plan</string>
+    <string name="downgrade_to_basic_yearly">Downgrade to Yearly Basic Plan</string>
+    <string name="downgrade_to_basic_prepaid">Downgrade to Prepaid Basic Plan</string>
+
+    <!-- Convert Any Basic Plan to Any Basic Plan-->
+    <string name="convert_to_basic_prepaid">Convert to Prepaid Basic Plan</string>
+    <string name="convert_to_basic_monthly">Convert to Monthly Basic Plan</string>
+    <string name="convert_to_basic_yearly">Convert to Yearly Basic Plan</string>
+
+    <!-- Upgrade Any Basic Plan to Any Premium Plan-->
+    <string name="upgrade_to_premium_monthly">Upgrade to Monthly Premium Plan</string>
+    <string name="upgrade_to_premium_yearly">Upgrade to Yearly Premium Plan</string>
+    <string name="upgrade_to_premium_prepaid">Upgrade to Prepaid Premium Plan</string>
+
+    <!-- Convert Any Premium Plan to Any Premium Plan-->
+    <string name="convert_to_premium_prepaid">Convert to Prepaid Premium Plan</string>
+    <string name="convert_to_premium_monthly">Convert to Monthly Premium Plan</string>
+    <string name="convert_to_premium_yearly">Convert to Yearly Premium Plan</string>
+
+
+    <!-- Convert Premium Monthly to Prepaid -->
+    <string name="premium_to_prepaid_text">Tap to convert to Prepaid plan</string>
+    <string name="premium_to_prepaid_message">
+        You have a premium subscription. Tap to convert to a Prepaid subscription.</string>
+    <string name="premium_to_prepaid_button">Convert to Prepaid</string>
+
+    <string name="google_play_billing_settings_message">Google Play Billing Settings</string>
+
+    <!-- Menu -->
+    <string name="menu_title">Menu</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="refresh_menu_text">Refresh</string>
+    <string name="menu_drawer_content_description">Classy Taxi Menu Banner</string>
+
+    <!-- Product Selection -->
+    <string name="product_selection_screen_text">Choose between a one-time product or a subscription</string>
+
+
+    <!-- One Time Purchase -->
+    <string name="otp_purchase_screen_text">Purchase a One-Time Product</string>
+    <string name="otp_purchase_button_text">Purchase a One-Time Product</string>
+    <string name="otp_image_content_description">You have a One Time Purchase</string>
+    <string name="one_time_product_purchase_image_content_description">Your one-time product purchase benefit image.</string>
+    <string name="consume_one_time_product_button_text">Consume Your One-Time Product</string>
+
+</resources>
