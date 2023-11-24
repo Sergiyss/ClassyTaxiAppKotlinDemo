@@ -378,12 +378,12 @@ class BillingRepository private constructor(
     }
 
     /**
-     * Merge the previous subscriptions and new subscriptions by looking at on-device purchases.
+     * Объедините предыдущие и новые подписки, просматривая покупки на устройстве.
      *
-     * We want to return the list of new subscriptions, possibly with some modifications
-     * based on old subscriptions and the on-devices purchases from Google Play Billing.
-     * Old subscriptions should be retained if they are owned by someone else (subAlreadyOwned)
-     * and the purchase token for the subscription is still on this device.
+     * Хотим вернуть список новых подписок, возможно с некоторыми изменениями
+     * на основе старых подписок и покупок на устройствах в Google Play Billing.
+     * Старые подписки следует сохранять, если они принадлежат другому лицу (subAlreadyOwned).
+     * и токен покупки подписки все еще находится на этом устройстве.
      */
     private fun mergeSubscriptionsAndPurchases(
         oldSubscriptions: List<SubscriptionStatus>?,
@@ -499,8 +499,8 @@ class BillingRepository private constructor(
     }
 
     /**
-     * Modify the product purchase's isLocalPurchase field based on the list of local purchases.
-     * Return true if any of the values changed.
+     * Измените поле isLocalPurchase покупки продукта на основе списка местных покупок.
+     * Возвращает true, если какое-либо из значений изменилось.
      */
     private fun updateLocalPurchaseTokens(
         subscriptions: List<SubscriptionStatus>?,

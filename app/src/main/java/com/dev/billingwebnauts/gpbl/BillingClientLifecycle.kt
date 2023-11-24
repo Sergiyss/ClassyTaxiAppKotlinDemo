@@ -83,15 +83,15 @@ class BillingClientLifecycle private constructor(
 
     override fun onCreate(owner: LifecycleOwner) {
         Log.d(TAG, "ON_CREATE")
-        // Create a new BillingClient in onCreate().
-        // Since the BillingClient can only be used once, we need to create a new instance
-        // after ending the previous connection to the Google Play Store in onDestroy().
+        // Создаем новый BillingClient в onCreate().
+        // Поскольку BillingClient можно использовать только один раз, нам нужно создать новый экземпляр
+        // после завершения предыдущего подключения к Google Play Store в onDestroy().
         billingClient = BillingClient.newBuilder(applicationContext)
             .setListener(this)
             .enablePendingPurchases() // Not used for subscriptions.
             .build()
         if (!billingClient.isReady) {
-            Log.d(TAG, "BillingClient: Start connection...")
+            Log.d(TAG, "BillingClient: Начать соединение...")
             billingClient.startConnection(this)
         }
     }
@@ -99,9 +99,9 @@ class BillingClientLifecycle private constructor(
     override fun onDestroy(owner: LifecycleOwner) {
         Log.d(TAG, "ON_DESTROY")
         if (billingClient.isReady) {
-            Log.d(TAG, "BillingClient can only be used once -- closing connection")
-            // BillingClient can only be used once.
-            // After calling endConnection(), we must create a new BillingClient.
+            Log.d(TAG, "BillingClient можно использовать только один раз — закрытие соединения")
+            // BillingClient можно использовать только один раз.
+            // После вызова endConnection() мы должны создать новый BillingClient.
             billingClient.endConnection()
         }
     }
@@ -304,7 +304,7 @@ class BillingClientLifecycle private constructor(
      */
     fun queryOneTimeProductPurchases() {
         if (!billingClient.isReady) {
-            Log.e(TAG, "queryOneTimeProductPurchases: BillingClient is not ready")
+            Log.e(TAG, "queryOneTimeProductPurchases: BillingClient не готов")
             billingClient.startConnection(this)
         }
         billingClient.queryPurchasesAsync(
@@ -315,7 +315,7 @@ class BillingClientLifecycle private constructor(
     }
 
     /**
-     * Callback from the billing library when queryPurchasesAsync is called.
+     * Обратный вызов из библиотеки выставления счетов при вызове queryPurchasesAsync.
      */
     override fun onQueryPurchasesResponse(
         billingResult: BillingResult,
@@ -325,7 +325,7 @@ class BillingClientLifecycle private constructor(
     }
 
     /**
-     * Called by the Billing Library when new purchases are detected.
+     * Вызывается Библиотекой выставления счетов при обнаружении новых покупок.
      */
     override fun onPurchasesUpdated(
         billingResult: BillingResult,
@@ -337,42 +337,68 @@ class BillingClientLifecycle private constructor(
         when (responseCode) {
             BillingClient.BillingResponseCode.OK -> {
                 if (purchases == null) {
-                    Log.d(TAG, "onPurchasesUpdated: null purchase list")
+                    Log.d(TAG, "onPurchasesUpdated: нулевой список покупок")
                     processPurchases(null)
                 } else {
-                    processPurchases(purchases)
+                    //Метод подтверждения новой покупки на строне сервера
+                    //processPurchases(purchases)
+                    //Метод подтверждения новой покупки на строне клиента
+                    acknowledgePurchases(purchases.get(0))
                 }
             }
 
             BillingClient.BillingResponseCode.USER_CANCELED -> {
-                Log.i(TAG, "onPurchasesUpdated: User canceled the purchase")
+                Log.i(TAG, "onPurchasesUpdated: пользователь отменил покупку")
             }
 
             BillingClient.BillingResponseCode.ITEM_ALREADY_OWNED -> {
-                Log.i(TAG, "onPurchasesUpdated: The user already owns this item")
+                Log.i(TAG, "onPurchasesUpdated: пользователь уже владеет этим предметом.")
             }
 
             BillingClient.BillingResponseCode.DEVELOPER_ERROR -> {
                 Log.e(
-                    TAG, "onPurchasesUpdated: Developer error means that Google Play does " +
-                            "not recognize the configuration. If you are just getting started, " +
-                            "make sure you have configured the application correctly in the " +
-                            "Google Play Console. The product ID must match and the APK you " +
-                            "are using must be signed with release keys."
+                    TAG, "onPurchasesUpdated: ошибка разработчика означает, что Google Play делает " +
+                            "не распознать конфигурацию. Если вы только начинаете\", +\n" +
+                            "\"убедитесь, что вы правильно настроили приложение в разделе \" +\n" +
+                            "«Консоль Google Play. Идентификатор продукта должен совпадать с вашим APK» +\n" +
+                            "«используемые файлы должны быть подписаны ключами выпуска."
                 )
             }
         }
     }
 
     /**
-     * Send purchase to StateFlow, which will trigger network call to verify the subscriptions
-     * on the sever.
+     * Выполняем подтверждение покупки новой подписки на стороне клиента.
+     * **/
+    private fun acknowledgePurchases(purchase: Purchase?) {
+        purchase?.let {
+            if (!it.isAcknowledged) {
+                val params = AcknowledgePurchaseParams.newBuilder()
+                    .setPurchaseToken(it.purchaseToken)
+                    .build()
+
+                billingClient.acknowledgePurchase(
+                    params
+                ) { billingResult ->
+                    if (billingResult.responseCode == BillingClient.BillingResponseCode.OK &&
+                        it.purchaseState == Purchase.PurchaseState.PURCHASED
+                    ) {
+                        println(">>>>>>>>>> есть подписки .....")
+                    }
+                }
+            }
+        }
+    }
+
+    /**
+     * Отправьте покупку в StateFlow, что вызовет сетевой вызов для проверки подписок.
+     * на сервере.
      */
     private fun processPurchases(purchasesList: List<Purchase>?) {
         Log.d(TAG, "processPurchases: ${purchasesList?.size} purchase(s)")
         purchasesList?.let { list ->
             if (isUnchangedPurchaseList(list)) {
-                Log.d(TAG, "processPurchases: Purchase list has not changed")
+                Log.d(TAG, "processPurchases: список покупок не изменился")
                 return
             }
             externalScope.launch {
@@ -386,6 +412,9 @@ class BillingClientLifecycle private constructor(
                     purchase.products.contains(Constants.ONE_TIME_PRODUCT)
                 }
 
+
+                println("ПОДТВЕРЖДЕНИЕ СЕРВЕРОМ ПОКУПКУ ${subscriptionPurchaseList.lastOrNull().toString()} -- ${oneTimeProductPurchaseList.lastOrNull().toString()}")
+
                 _oneTimeProductPurchases.emit(oneTimeProductPurchaseList)
                 _subscriptionPurchases.emit(subscriptionPurchaseList)
             }
@@ -394,7 +423,7 @@ class BillingClientLifecycle private constructor(
     }
 
     /**
-     * Check whether the purchases have changed before posting changes.
+     * Проверьте, изменились ли покупки, прежде чем публиковать изменения.
      */
     private fun isUnchangedPurchaseList(purchasesList: List<Purchase>): Boolean {
         val isUnchanged = purchasesList == cachedPurchasesList
@@ -483,13 +512,13 @@ class BillingClientLifecycle private constructor(
 
             when {
                 response.isOk -> {
-                    Log.i(TAG, "Acknowledge success - token: $purchaseToken")
+                    Log.i(TAG, "Подтверждение успеха – токен: $purchaseToken")
                     return true
                 }
 
                 response.canFailGracefully -> {
                     // Ignore the error
-                    Log.i(TAG, "Token $purchaseToken is already owned.")
+                    Log.i(TAG, "Токен $purchaseToken уже принадлежит")
                     return true
                 }
 
@@ -500,7 +529,7 @@ class BillingClientLifecycle private constructor(
                     if (trial < MAX_RETRY_ATTEMPT) {
                         Log.w(
                             TAG,
-                            "Retrying($trial) to acknowledge for token $purchaseToken - " +
+                            "Повторная попытка ($trial) подтвердить токен $purchaseToken - " +
                                     "code: ${bResult!!.responseCode}, message: " +
                                     bResult!!.debugMessage
                         )
@@ -510,7 +539,7 @@ class BillingClientLifecycle private constructor(
                 response.isNonrecoverableError || response.isTerribleFailure -> {
                     Log.e(
                         TAG,
-                        "Failed to acknowledge for token $purchaseToken - " +
+                        "Не удалось подтвердить токен $purchaseToken - " +
                                 "code: ${bResult!!.responseCode}, message: " +
                                 bResult!!.debugMessage
                     )
@@ -518,7 +547,7 @@ class BillingClientLifecycle private constructor(
                 }
             }
         }
-        throw Exception("Failed to acknowledge the purchase!")
+        throw Exception("Не удалось подтвердить покупку!")
     }
 
     companion object {
