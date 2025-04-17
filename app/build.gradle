@@ -20,7 +20,6 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-parcelize'
 apply plugin: 'com.google.gms.google-services'
 
-
 android {
     compileSdkVersion androidCompileSdkVersion as Integer
     defaultConfig {
