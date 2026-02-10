@@ -44,16 +44,16 @@ ext {
 
     // Android version information.
     androidMinimumSdkVersion = 29
-    androidTargetSdkVersion = 33
-    androidCompileSdkVersion = 33
+    androidTargetSdkVersion = 34
+    androidCompileSdkVersion = 34
 }
 
 buildscript {
     ext {
         // Library versions.
-        billingVersion = '6.0.0'
+        billingVersion = '6.1.0'
         coroutinesVersion = '1.6.0'
-        firebaseUiVersion = '8.0.0'
+        firebaseUiVersion = '8.0.2'
         glideVersion = '4.13.0'
         gsonVersion = '2.9.0'
         jsonVersion = '20140107'
@@ -62,9 +62,9 @@ buildscript {
         lifecycleVersion = '2.6.1'
         lifecycleExtentionsVersion = '2.2.0'
         materialUiVersion = '1.8.0'
-        playServicesVersion = '20.4.1'
+        playServicesVersion = '20.6.0'
         retrofitSuiteVersion = '2.9.0'
-        roomVersion = '2.5.1'
+        roomVersion = '2.6.1'
         interceptorVersion = '3.8.0'
         leanbackPreferenceVersion = '1.0.0'
         cardViewVersion = '1.0.0'
@@ -72,8 +72,8 @@ buildscript {
 
         // Tools versions.
         gradleGoogleVersion = '4.3.15'
-        gradleToolsVersion = '7.4.2'
-        kotlinVersion = '1.8.10'
+        gradleToolsVersion = '8.4.2'
+        kotlinVersion = '1.9.24'
 
         // Testing versions.
         androidXTestCoreVersion = '1.5.0'
@@ -87,10 +87,10 @@ buildscript {
         expressoVersion = "3.5.1"
 
         // Compose versions.
-        compose_version = "1.4.2"
+        compose_version = "1.6.8"
         nav_version = "2.5.3"
         lifecycleVersion = "2.6.1"
-        activityComposeVersion = "1.7.0"
+        activityComposeVersion = "1.9.0"
         glideComposeVersion = "1.0.0-alpha.1"
     }
 

@@ -68,6 +68,10 @@
             </intent-filter>
         </service>
 
+        <receiver
+            android:name="com.android.billingclient.api.BillingBroadcastReceiver"
+            android:exported="false"/>
+
         <service
             android:name="com.dev.billingwebnauts.data.network.firebase.BillingMessageService"
             android:exported="true"

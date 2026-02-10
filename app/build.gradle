@@ -22,7 +22,9 @@ apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion androidCompileSdkVersion as Integer
+
     defaultConfig {
+        namespace "com.dev.billingwebnauts"
         // The applicationId should be set in the project gradle.properties files.
         applicationId androidApplicationId
         minSdkVersion androidMinimumSdkVersion as Integer
@@ -75,10 +77,11 @@ android {
     buildFeatures {
         viewBinding true
         dataBinding true
+        buildConfig true
         compose true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.2"
+        kotlinCompilerExtensionVersion = "1.5.14"
     }
     compileOptions {
         targetCompatibility JavaVersion.VERSION_1_8
@@ -127,7 +130,7 @@ dependencies {
     //Room
     kapt "androidx.room:room-compiler:$roomVersion"
     implementation "androidx.room:room-ktx:$roomVersion"
-
+    implementation "androidx.room:room-rxjava2:$roomVersion"
     // Retrofit dependencies
     implementation "com.squareup.okhttp3:logging-interceptor:$interceptorVersion"
     implementation "com.squareup.retrofit2:retrofit:$retrofitSuiteVersion"
