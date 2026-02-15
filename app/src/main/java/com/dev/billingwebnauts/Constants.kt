@@ -35,6 +35,8 @@ object Constants {
         const val BASIC_PREPAID_PLAN_TAG = "prepaidbasic"
         const val PREMIUM_PREPAID_PLAN_TAG = "prepaidpremium"
 
+        const val SALE_BASIC_MONTHLY_PLAN = "sale-basicmonthly-2"
+
 
         const val PLAY_STORE_SUBSCRIPTION_URL
                 = "https://play.google.com/store/account/subscriptions"

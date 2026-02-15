@@ -221,5 +221,7 @@
     <string name="otp_image_content_description">You have a One Time Purchase</string>
     <string name="one_time_product_purchase_image_content_description">Your one-time product purchase benefit image.</string>
     <string name="consume_one_time_product_button_text">Consume Your One-Time Product</string>
+    <string name="special_offer_75_discount">special offer 75 discount</string>
+    <string name="limited_time_offer">limited time offer</string>
 
 </resources>

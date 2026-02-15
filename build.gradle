@@ -44,8 +44,8 @@ ext {
 
     // Android version information.
     androidMinimumSdkVersion = 29
-    androidTargetSdkVersion = 34
-    androidCompileSdkVersion = 34
+    androidTargetSdkVersion = 35
+    androidCompileSdkVersion = 35
 }
 
 buildscript {

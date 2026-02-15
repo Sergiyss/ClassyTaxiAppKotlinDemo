@@ -23,6 +23,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -149,6 +150,7 @@ fun BasicBasePlansScreen(
                 content = {
                     BasePlanScreenButtons(
                         selectedBasicSubscriptionButton = selectedBasicSubscriptionButton,
+                        billingViewModel = billingViewModel,
                     )
                 },
                 textResource = R.string.basic_paywall_message
@@ -271,6 +273,33 @@ fun BasicEntitlementScreen(
 }
 
 @Composable
+fun SpecialOfferButton(
+    billingViewModel: BillingViewModel,
+    userId: String,
+    isEligible: Boolean,
+    modifier: Modifier = Modifier
+) {
+    if (isEligible) {
+        Button(
+            modifier = modifier
+                .fillMaxWidth()
+                .padding(dimensionResource(id = R.dimen.menu_drawer_body_button_padding)),
+            onClick = {
+                billingViewModel.buySpecialOffer(userId)
+            }
+        ) {
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                Text(text = stringResource(id = R.string.special_offer_75_discount))
+                Text(
+                    text = stringResource(id = R.string.limited_time_offer),
+                    style = MaterialTheme.typography.bodySmall
+                )
+            }
+        }
+    }
+}
+
+@Composable
 fun BasicConversionScreen(
     billingViewModel: BillingViewModel,
     selectedButton: MutableState<Int>,
@@ -332,6 +361,7 @@ fun BasicConversionScreen(
 private fun BasePlanScreenButtons(
     selectedBasicSubscriptionButton: MutableState<Int>,
     modifier: Modifier = Modifier,
+    billingViewModel: BillingViewModel,
 ) {
     Column(modifier = modifier) {
         Button(
@@ -362,6 +392,8 @@ private fun BasePlanScreenButtons(
             }) {
             Text(text = stringResource(id = R.string.prepaid_basic_plan_text))
         }
+
+        SpecialOfferButton(billingViewModel = billingViewModel, userId = "1", isEligible = true)
     }
 }
 

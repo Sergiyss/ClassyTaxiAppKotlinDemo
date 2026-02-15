@@ -199,6 +199,28 @@ class BillingRepository private constructor(
         }
     }
 
+    suspend fun checkSpecialOfferEligibility(userId: String): Boolean {
+        return withContext(Dispatchers.IO) {
+            try {
+                // Вызов к вашему серверу для проверки eligibility
+                true
+            } catch (e: Exception) {
+                Log.e("BillingRepository", "Error checking eligibility", e)
+                false
+            }
+        }
+    }
+
+    suspend fun markSpecialOfferAsUsed(userId: String, purchaseToken: String) {
+        withContext(Dispatchers.IO) {
+            try {
+               println("markSpecialOfferAsUsed called for purchaseToken: $purchaseToken")
+            } catch (e: Exception) {
+                Log.e("BillingRepository", "Error marking offer as used", e)
+            }
+        }
+    }
+
     /**
      * Update the local database with the subscription status from the remote server.
      * This method is called when the app starts and when the user refreshes the subscription

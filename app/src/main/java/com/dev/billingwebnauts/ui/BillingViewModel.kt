@@ -19,6 +19,7 @@ package com.dev.billingwebnauts.ui
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.viewModelScope
 import com.android.billingclient.api.BillingFlowParams
 import com.android.billingclient.api.ProductDetails
 import com.android.billingclient.api.Purchase
@@ -30,6 +31,7 @@ import com.dev.billingwebnauts.data.subscriptions.SubscriptionStatus
 import com.dev.billingwebnauts.gpbl.deviceHasGooglePlaySubscription
 import com.dev.billingwebnauts.gpbl.serverHasSubscription
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.launch
 
 
 class BillingViewModel(application: Application) : AndroidViewModel(application) {
@@ -40,6 +42,36 @@ class BillingViewModel(application: Application) : AndroidViewModel(application)
      * Local billing purchase data.
      */
     private val purchases = (application as BillingApp).billingClientLifecycle.subscriptionPurchases
+
+
+    /**
+     * Проверяет, имеет ли пользователь право на специальное предложение
+     * В реальном приложении это должно проверяться на сервере
+     */
+    private suspend fun isUserEligibleForSpecialOffer(userId: String): Boolean {
+        // Проверьте на вашем сервере, выполнил ли пользователь необходимые действия
+        // Например: нажал кнопку "Получить спец предложение"
+        return repository.checkSpecialOfferEligibility(userId)
+    }
+
+    /**
+     * Покупка со специальным оффером
+     */
+    fun buySpecialOffer(userId: String) {
+        viewModelScope.launch {
+            if (!isUserEligibleForSpecialOffer(userId)) {
+                Log.e(TAG, "User is not eligible for special offer")
+                // Покажите сообщение пользователю
+                return@launch
+            }
+
+            buyBasePlans(
+                tag = Constants.SALE_BASIC_MONTHLY_PLAN,
+                product = Constants.BASIC_PRODUCT,
+                upDowngrade = false
+            )
+        }
+    }
 
     /**
      * ProductDetails for all known Products.
